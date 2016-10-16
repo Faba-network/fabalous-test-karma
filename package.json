@@ -1,6 +1,6 @@
 {
   "name": "@fabalous/test-karma",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "postversion": "git push && git push --tags && npm publish"
   },
