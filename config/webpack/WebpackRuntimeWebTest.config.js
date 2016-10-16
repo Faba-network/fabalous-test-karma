@@ -8,16 +8,10 @@ module.exports = {
         filename: 'test.js'
     },
 
-    debug: false,
-    devtool: 'source-map',
+    devtool: 'eval',
 
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.less']
-    },
-    entry: {
-        app: [
-            './test/T_Web.ts' // Your appʼs entry point
-        ]
+        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.less']
     },
 
     externals: {
@@ -37,7 +31,7 @@ module.exports = {
             },
             {
                 test: /\.tsx?$/,
-                loader: 'babel?presets[]=es2015!awesome-typescript-loader?forkChecker=false',
+                loader: 'babel?cacheDirectory=true!awesome-typescript-loader?forkChecker=false',
                 exclude: /node_modules/
             },
             {
@@ -50,7 +44,7 @@ module.exports = {
     plugins:[
         new webpack.NormalModuleReplacementPlugin(/\.(gif|png|less|css)$/, 'node-noop'),
         new webpack.DefinePlugin({
-            //'process.env': { NODE_ENV: JSON.stringify('production') },
+            'process.env': { NODE_ENV: JSON.stringify('production')},
             CLIENT: true,
             SERVER:false,
             TEST:true
