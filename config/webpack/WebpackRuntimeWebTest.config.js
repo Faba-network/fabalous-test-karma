@@ -8,7 +8,7 @@ module.exports = {
         filename: 'test.js'
     },
 
-    devtool: 'eval',
+    devtool: 'inline-source-map',
 
     resolve: {
         extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.less']
@@ -44,7 +44,7 @@ module.exports = {
     plugins:[
         new webpack.NormalModuleReplacementPlugin(/\.(gif|png|less|css)$/, 'node-noop'),
         new webpack.DefinePlugin({
-            'process.env': { NODE_ENV: JSON.stringify('production')},
+            //'process.env': { NODE_ENV: JSON.stringify('production')},
             CLIENT: true,
             SERVER:false,
             TEST:true
